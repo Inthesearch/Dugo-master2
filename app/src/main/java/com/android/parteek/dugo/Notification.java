@@ -162,6 +162,7 @@ public class Notification extends AppCompatActivity implements AdapterView.OnIte
         final String date,time;
         date = DateFormat.getDateInstance().format(new Date());
         time = DateFormat.getTimeInstance().format(new Date());
+        Log.d("name", preferences.getString(Util.key_name,null));
         StringRequest request=new StringRequest(Request.Method.POST, Util.sendNotif, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -197,7 +198,7 @@ public class Notification extends AppCompatActivity implements AdapterView.OnIte
                 map.put("id", String.valueOf(id));
                 map.put("date",date);
                 map.put("blood",blood);
-                map.put("phone",preferences.getString("phone",null));
+                map.put("phone",preferences.getString(Util.key_phone,null));
                 map.put("name",preferences.getString(Util.key_name,null));
 
                 map.put("time",time);
