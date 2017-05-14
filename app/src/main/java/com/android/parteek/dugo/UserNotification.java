@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -26,19 +27,26 @@ import java.util.Map;
 public class UserNotification extends AppCompatActivity {
 
     Button b1,b2;
+    TextView text_name,text_phone;
     RequestQueue requestQueue;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
     int seeker,donor,request;
     ProgressDialog pd;
 
+    Intent i;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_notification);
-        Intent i=getIntent();
+         i=getIntent();
          seeker=i.getIntExtra("Seeker",0);
         request=i.getIntExtra("Request",0);
+
+        text_name = (TextView)findViewById(R.id.text_name);
+        text_phone=(TextView)findViewById(R.id.text_phone);
+        text_name.setText("Name : " + i.getStringExtra("NAME"));
+        text_phone.setText("Mobile no. : "+i.getStringExtra("PHONE"));
 
         requestQueue = Volley.newRequestQueue(this);
         preferences=getSharedPreferences(Util.pref_name1,MODE_PRIVATE);

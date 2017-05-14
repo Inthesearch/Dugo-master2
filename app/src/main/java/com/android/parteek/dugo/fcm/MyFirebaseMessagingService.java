@@ -91,6 +91,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 int request= Integer.parseInt(msgs[2]);
                 intent.putExtra("Seeker",seeker );
                 intent.putExtra("Request",request );
+                intent.putExtra("PHONE",msgs[4]);
+                intent.putExtra("NAME",msgs[3]);
 
 
                 PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
@@ -99,7 +101,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
                         .setSmallIcon(R.mipmap.ic_launcher)
                         .setContentTitle("Dugo")
-                        .setContentText(msgs[0]+" "+msgs[3]+" "+msgs[4])
+                        .setContentText(msgs[0])
                         .setAutoCancel(true)
                         .setContentIntent(pendingIntent);
 
