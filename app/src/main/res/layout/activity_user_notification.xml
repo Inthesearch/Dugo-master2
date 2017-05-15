@@ -42,33 +42,31 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="80dp"
-        >
+        android:layout_marginTop="30dp">
 
 
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btnyes"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="24dp"
+            android:onClick="onClick"
+            android:padding="12dp"
+            android:text="Accept" />
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btnyes"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:layout_marginTop="24dp"
-        android:padding="12dp"
-        android:onClick="onClick"
-        android:layout_marginLeft="10dp"
-        android:text="Accept" />
-
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btnno"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:layout_marginTop="24dp"
-        android:onClick="onClick1"
-        android:padding="12dp"
-        android:text="reject" />
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btnno"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="24dp"
+            android:onClick="onClick1"
+            android:padding="12dp"
+            android:text="reject" />
     </LinearLayout>
 </LinearLayout>

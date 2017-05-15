@@ -21,6 +21,8 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,6 +35,10 @@ public class UserNotification extends AppCompatActivity {
     SharedPreferences.Editor editor;
     int seeker,donor,request;
     ProgressDialog pd;
+
+    String date,time;
+
+
 
     Intent i;
     @Override
@@ -69,6 +75,9 @@ public class UserNotification extends AppCompatActivity {
 
     }
     void putDonor(){
+
+        date = DateFormat.getDateInstance().format(new Date());
+        time = DateFormat.getTimeInstance().format(new Date());
         pd.show();
         StringRequest stringRequest=new StringRequest(Request.Method.POST, Util.update, new Response.Listener<String>() {
             @Override
@@ -106,6 +115,8 @@ public class UserNotification extends AppCompatActivity {
                 map.put("seeker", String.valueOf(seeker));
                 map.put("donor", String.valueOf(donor));
                 map.put("request", String.valueOf(request));
+                map.put("date",date);
+                map.put("time",time);
                 return map;
             }
         };
